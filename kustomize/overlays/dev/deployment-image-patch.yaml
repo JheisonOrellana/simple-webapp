@@ -1,0 +1,19 @@
+# overlays/dev/deployment-image-patch.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-webapp
+spec:
+  template:
+    spec:
+      containers:
+        - name: simple-webapp
+          image: image-registry.openshift-image-registry.svc:5000/jorellana-test/simple-webapp:latest
+	  resources:
+	    requests:
+	      cpu: 10m
+              memory: 10Mi
+	    limits:
+	      cpu: 50m
+	      memory: 50Mi
+
