@@ -1,0 +1,19 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  name: simple-webapp
+  namespace: jorellana-test
+spec:
+  host: simple-webapp-jorellana-test.apps.acm.msp.crossvale.com
+  port:
+    targetPort: 8080
+  tls:
+    insecureEdgeTerminationPolicy: None
+    termination: edge
+  to:
+    kind: Service
+    name: simple-webapp
+    weight: 100
+  wildcardPolicy: None

@@ -1,0 +1,21 @@
+# base/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-webapp
+  template:
+    metadata:
+      labels:
+        app: simple-webapp
+    spec:
+      containers:
+        - name: simple-webapp
+          image: image
+          ports:
+            - containerPort: 8080
+
